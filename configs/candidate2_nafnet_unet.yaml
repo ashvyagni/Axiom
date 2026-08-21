@@ -1,0 +1,27 @@
+model:
+  type: restoration
+  base_ch: 48
+  num_blocks: 2
+  use_freq_branch: true
+
+loss:
+  weights:
+    l1: 1.0
+    ssim: 0.5
+    perceptual: 0.1
+    frequency: 0.3
+    edge: 0.2
+    range: 0.1
+
+data:
+  root_dir: data
+  batch_size: 8
+  synthetic_aug: true
+  patch_size: null
+
+training:
+  epochs: 200
+  lr: 2e-4
+  weight_decay: 1e-4
+  seed: 42
+  save_every: 10

@@ -1,0 +1,30 @@
+# Ablation: Loss weights sweep
+# Each row = one experiment, vary one weight at a time
+
+experiments:
+  - name: baseline
+    weights: {l1: 1.0, ssim: 0.5, perceptual: 0.1, frequency: 0.3, edge: 0.2, range: 0.1}
+
+  - name: no_ssim
+    weights: {l1: 1.0, ssim: 0.0, perceptual: 0.1, frequency: 0.3, edge: 0.2, range: 0.1}
+
+  - name: no_perceptual
+    weights: {l1: 1.0, ssim: 0.5, perceptual: 0.0, frequency: 0.3, edge: 0.2, range: 0.1}
+
+  - name: no_frequency
+    weights: {l1: 1.0, ssim: 0.5, perceptual: 0.1, frequency: 0.0, edge: 0.2, range: 0.1}
+
+  - name: no_edge
+    weights: {l1: 1.0, ssim: 0.5, perceptual: 0.1, frequency: 0.3, edge: 0.0, range: 0.1}
+
+  - name: no_range
+    weights: {l1: 1.0, ssim: 0.5, perceptual: 0.1, frequency: 0.3, edge: 0.2, range: 0.0}
+
+  - name: high_ssim
+    weights: {l1: 1.0, ssim: 1.0, perceptual: 0.1, frequency: 0.3, edge: 0.2, range: 0.1}
+
+  - name: high_freq
+    weights: {l1: 1.0, ssim: 0.5, perceptual: 0.1, frequency: 0.8, edge: 0.2, range: 0.1}
+
+  - name: high_range
+    weights: {l1: 1.0, ssim: 0.5, perceptual: 0.1, frequency: 0.3, edge: 0.2, range: 0.5}
