@@ -4,17 +4,17 @@ import sys
 import time
 import json
 
+for _p in ['/content/Axiom/src', '/content/Axiom',
+           os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'src'),
+           os.path.dirname(os.path.abspath(__file__))]:
+    _p = os.path.normpath(_p)
+    if os.path.isdir(_p) and _p not in sys.path:
+        sys.path.insert(0, _p)
+
 import numpy as np
 import torch
 from torch.optim import AdamW
 from torch.optim.lr_scheduler import OneCycleLR, CosineAnnealingLR
-
-_SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-_PROJECT_ROOT = os.path.normpath(os.path.join(_SCRIPT_DIR, '..'))
-_SRC = os.path.join(_PROJECT_ROOT, 'src')
-for _p in [_SRC, _PROJECT_ROOT]:
-    if _p not in sys.path:
-        sys.path.insert(0, _p)
 from models.flagship import FlagshipNet, build_flagship, count_params
 from losses.flagship_loss import FlagshipLoss
 from data.dataset import get_dataloaders, KLADataset
