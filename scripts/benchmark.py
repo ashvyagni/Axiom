@@ -109,7 +109,7 @@ def main():
     print(f"Using device: {device}")
 
     # Load data
-    from data.dataset import KLADataset
+    from datasets.dataset import KLADataset
     from torch.utils.data import DataLoader
     ds = KLADataset(args.data_dir, split=args.split, augment=False, synthetic_aug=False)
     loader = DataLoader(ds, batch_size=1, shuffle=False, num_workers=0)

@@ -17,7 +17,7 @@ from torch.optim import AdamW
 from torch.optim.lr_scheduler import OneCycleLR, CosineAnnealingLR
 from models.flagship import FlagshipNet, build_flagship, count_params
 from losses.flagship_loss import FlagshipLoss
-from data.dataset import get_dataloaders, KLADataset
+from datasets.dataset import get_dataloaders, KLADataset
 from utils.metrics import compute_ssim, compute_psnr
 from utils.guards import clip_output
 from utils.ema import EMA

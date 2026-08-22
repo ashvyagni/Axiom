@@ -61,7 +61,7 @@ from torch.utils.data import DataLoader
 sys.path.insert(0, os.path.join(PROJECT_DIR, 'src'))
 from models.flagship import build_flagship, count_params
 from losses.flagship_loss import FlagshipLoss
-from data.dataset import KLADataset
+from datasets.dataset import KLADataset
 from utils.metrics import compute_ssim, compute_psnr
 from utils.ema import EMA
 

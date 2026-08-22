@@ -14,7 +14,7 @@ from skimage.metrics import structural_similarity as ski_ssim
 from skimage.metrics import peak_signal_noise_ratio as ski_psnr
 
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'src'))
-from data.dataset import get_dataloaders
+from datasets.dataset import get_dataloaders
 from models.restoration import RestorationNet
 from models.two_stage import TwoStageNet
 from losses.composite import CompositeLoss
