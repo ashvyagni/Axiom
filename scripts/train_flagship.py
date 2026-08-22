@@ -9,7 +9,13 @@ import torch
 from torch.optim import AdamW
 from torch.optim.lr_scheduler import OneCycleLR, CosineAnnealingLR
 
-sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'src'))
+_SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+_PROJECT_ROOT = os.path.normpath(os.path.join(_SCRIPT_DIR, '..'))
+_SRC = os.path.join(_PROJECT_ROOT, 'src')
+if _SRC not in sys.path:
+    sys.path.insert(0, _SRC)
+if _PROJECT_ROOT not in sys.path:
+    sys.path.insert(0, _PROJECT_ROOT)
 from models.flagship import FlagshipNet, build_flagship, count_params
 from losses.flagship_loss import FlagshipLoss
 from data.dataset import get_dataloaders, KLADataset

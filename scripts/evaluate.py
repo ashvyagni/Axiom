@@ -4,9 +4,13 @@ import sys
 import numpy as np
 import torch
 
-_HERE = os.path.dirname(os.path.abspath(__file__))
-_SRC = os.path.abspath(os.path.join(_HERE, '..', 'src'))
-sys.path.insert(0, _SRC)
+_SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+_PROJECT_ROOT = os.path.normpath(os.path.join(_SCRIPT_DIR, '..'))
+_SRC = os.path.join(_PROJECT_ROOT, 'src')
+if _SRC not in sys.path:
+    sys.path.insert(0, _SRC)
+if _PROJECT_ROOT not in sys.path:
+    sys.path.insert(0, _PROJECT_ROOT)
 
 from models.flagship import build_flagship, count_params
 from utils.metrics import compute_ssim, compute_psnr
